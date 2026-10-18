@@ -65,14 +65,14 @@ Run the steps in this order. After each step, move on to the next one. If a step
 3. Post the review notes as an issue comment prefixed with `🤖 [agent:review]`.
 4. Decision:
    - **Complete and correct:** approve the PR with `gh pr review <pr> --approve --body "..."`. If GitHub refuses because the PR author is the same account, post the verdict with `gh pr review <pr> --comment` instead and say so in the issue comment. Then merge with `gh pr merge <pr> --squash --delete-branch`, switch back to `main` and pull. Move the item to **Done** (the PR body contains `Closes #<n>`, so the issue closes on merge).
-   - **Incomplete or wrong:** list the missing / faulty parts in the `[agent:review]` comment and move the item to **In progress**. Do not merge.
+   - **Incomplete or wrong:** list the missing / faulty parts in the `[agent:review]` comment and move the item to **In progress**. Do not merge. Switch back to `main` (see "Leave the repo on main").
 
 ### 2. In progress: continue a task
 
 1. Read the issue and all comments. If an earlier `[agent:progress]` comment exists, continue from where it stopped. If a `[agent:review]` comment listed problems, fix them first. If work never started, follow the implementation plan (`[agent:plan]` comment or issue body).
 2. Work on the feature branch of the task (see step 3 for naming); check it out if it exists.
 3. Finish the implementation, run build/typecheck, then go to the **handoff** below.
-4. If you cannot finish (blocked, unclear requirement), leave an `🤖 [agent:progress]` comment saying what is done, what is left and what blocks you, and keep the task in In progress.
+4. If you cannot finish (blocked, unclear requirement), commit and push the work done so far on the feature branch, leave an `🤖 [agent:progress]` comment saying what is done, what is left and what blocks you, keep the task in In progress, and switch back to `main` (see "Leave the repo on main"). Never leave uncommitted changes behind.
 
 ### 3. Ready: start a task
 
@@ -98,6 +98,11 @@ A task taken from Ready continues through the following columns in the same run:
 4. Open the PR: `gh pr create --base main --title "<commit-style title>" --body "..."`. Body: what changed, why, how it was tested, and `Closes #<n>`.
 5. Post an `🤖 [agent:progress]` comment on the issue with the PR link and a summary of what was done.
 6. Move the item to **In review**.
+7. Switch back to `main` (see "Leave the repo on main").
+
+## Leave the repo on main
+
+This repo lives on a developer's machine, so never leave it on a feature branch. Whenever a step ends, whatever the outcome (handed off, merged, sent back, blocked), run `git checkout main` (and `git pull --ff-only` after a merge) before moving to the next step. The run must end with the working tree clean and `main` checked out. Check the branch and `git status` one last time before the final report; if a step needs a feature branch again, it checks it out itself.
 
 ## Hard rules
 
