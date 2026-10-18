@@ -15,6 +15,11 @@ Alt projelere özgü kurallar için:
 
 Bir işe başlamadan önce ilgili alt projenin Agents dosyasını oku.
 
+## Github Repository ve Github Projesi
+
+- Github Repository: [https://github.com/eyEminYILDIZ/ai-sdlc-todoapp](https://github.com/eyEminYILDIZ/ai-sdlc-todoapp)
+- Github Project: [https://github.com/users/eyEminYILDIZ/projects/2](https://github.com/users/eyEminYILDIZ/projects/2)
+
 ## Genel Kurallar
 
 - İstenen işin kapsamında kal; istenmeyen refactor, yeniden adlandırma veya format değişikliği yapma.
