@@ -9,7 +9,7 @@ Work the GitHub Project board of this repo together with humans. Every state cha
 
 Project name, repository and project URL are in the root `Agents.md`. Read it first, together with the sub-project file (`backend/Agents.backend.md`, `webapp/Agents.webapp.md`) of the area you touch. All work must follow those rules (code style, build/typecheck commands, API contract, `webapi.http` updates, English code comments and commit messages).
 
-Use the `gh` CLI for everything. It is already authenticated.
+Use the `gh` CLI for everything. It is already authenticated. Moving board items needs the `project` token scope (reading needs `read:project`); if `gh` reports a missing scope, ask the user to run `! gh auth refresh -s project`.
 
 ## Column ownership
 
@@ -46,7 +46,13 @@ gh project item-edit --project-id $PROJECT_ID --id <ITEM_ID> \
 
 Choosing a task inside a column: take the highest `Priority` (P0 > P1 > P2 > unset); ties go to the lowest issue number. Process **one task per step**.
 
-Before starting, make sure the working tree is clean (`git status`). If it is not, stop and ask the user.
+Before starting, sync the local repo so every comparison and new branch is based on the latest code:
+
+1. Make sure the working tree is clean (`git status`). If it is not, stop and ask the user.
+2. Make sure you are on `main` (`git branch --show-current`); if not, `git checkout main`.
+3. Run `git pull --ff-only` and confirm `main` is up to date with `origin/main`.
+   - If `origin` is an SSH remote with no usable key, pull over HTTPS with the `gh` credentials instead, without changing git config: `git -c credential.helper='!gh auth git-credential' pull --ff-only https://github.com/$REPO.git main`. Use the same form for `fetch`/`push`.
+4. Only then read the board and start working. Step 1 (review) and step 2 (in progress) check out their feature branches from this synced state.
 
 ## Flow
 
