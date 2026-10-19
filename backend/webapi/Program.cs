@@ -30,3 +30,6 @@ app.MapGet("/todos", (TodoApp.Services.TodoService todoservice) =>
 .WithName("GetTodos");
 
 app.Run();
+
+// Exposes the entry point to WebApplicationFactory in the test project.
+public partial class Program { }
