@@ -4,6 +4,7 @@ using TodoApp.Services;
 
 namespace webapi.tests;
 
+[Collection("TodoState")]
 public class TodoServiceTests
 {
     private readonly TodoService _service = new();
