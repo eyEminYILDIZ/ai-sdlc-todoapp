@@ -13,15 +13,15 @@ Use the `gh` CLI for everything. It is already authenticated. Moving board items
 
 ## Column ownership
 
-| Column | Owner | Rule |
-|---|---|---|
-| Backlog | Human | Never touch |
-| Planned | Human | Never touch (agent only drops tasks here) |
-| In planning | Agent | Write implementation plan |
-| Ready | Agent | Start implementation |
-| In progress | Agent | Continue implementation |
-| In review | Agent | Review the PR |
-| Done | - | Agent moves reviewed tasks here |
+| Column      | Owner | Rule                                      |
+| ----------- | ----- | ----------------------------------------- |
+| Backlog     | Human | Never touch                               |
+| Planned     | Human | Never touch (agent only drops tasks here) |
+| In planning | Agent | Write implementation plan                 |
+| Ready       | Agent | Start implementation                      |
+| In progress | Agent | Continue implementation                   |
+| In review   | Agent | Review the PR                             |
+| Done        | -     | Agent moves reviewed tasks here           |
 
 Match column names case-insensitively (the board option is literally `In planning`). Ignore tasks in any other column. Only tasks that are real issues are handled; if an item has no issue content (draft), skip it and mention in the final report that it should be converted to an issue.
 
