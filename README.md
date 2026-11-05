@@ -54,7 +54,10 @@ npm install
 npm start            # webpack dev server
 npm run typecheck    # tsc --noEmit
 npm run build        # production build
+npm run e2e          # Playwright end-to-end tests (starts backend + webapp)
 ```
+
+First time only: `npx playwright install chromium`. The repo also registers a Playwright MCP server in [.mcp.json](.mcp.json) so coding agents can drive the running app in a browser; see [webapp/Agents.webapp.md](webapp/Agents.webapp.md).
 
 ## Development Workflow
 

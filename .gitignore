@@ -59,3 +59,6 @@
 # *.VisualState.xml
 # TestResult.xml
 # nunit-*.xml
+
+# Playwright MCP output
+.playwright-mcp/
