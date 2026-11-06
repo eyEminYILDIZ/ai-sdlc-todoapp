@@ -24,8 +24,8 @@ test.describe("todo list", () => {
     await page.route("**/todos", route =>
       route.fulfill({
         json: [
-          { id: 1, text: "First mocked todo", done: false },
-          { id: 2, text: "Second mocked todo", done: true },
+          { id: "00000000-0000-0000-0000-000000000001", text: "First mocked todo", done: false },
+          { id: "00000000-0000-0000-0000-000000000002", text: "Second mocked todo", done: true },
         ],
       })
     );

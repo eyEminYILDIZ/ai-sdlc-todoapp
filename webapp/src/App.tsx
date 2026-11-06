@@ -21,8 +21,8 @@ export default function App() {
         <p>Loading...</p>
       ) : (
         <ul>
-          {todos.map((todo, index) => (
-            <li key={index}>{todo.text}</li>
+          {todos.map(todo => (
+            <li key={todo.id}>{todo.text}</li>
           ))}
         </ul>
       )}
