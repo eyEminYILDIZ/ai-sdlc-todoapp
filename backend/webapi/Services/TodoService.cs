@@ -5,9 +5,12 @@ using System.Collections.Generic;
 
 public class TodoService
 {
+    // Well-known id of the seed todo, so tests and manual requests can refer to it.
+    public static readonly Guid SeedTodoId = Guid.Parse("00000000-0000-0000-0000-000000000001");
+
     private static List<Todo> _todos = new List<Todo>()
     {
-        new Todo { Id = 1, Text = "Sample Todo", Done = false }
+        new Todo { Id = SeedTodoId, Text = "Sample Todo", Done = false }
     };
 
     public List<Todo> GetTodos()
@@ -17,7 +20,7 @@ public class TodoService
 
     public void AddTodo(Todo todo)
     {
-        todo.Id = _todos.Count + 1;
+        todo.Id = Guid.NewGuid();
         _todos.Add(todo);
     }
 
