@@ -7,9 +7,9 @@ A simple todo application built as an example of an AI-assisted software develop
 
 ## Project Structure
 
-| Folder     | Description                                          |
-|------------|------------------------------------------------------|
-| `backend/` | ASP.NET Core (.NET 10) Minimal API                   |
+| Folder     | Description                                           |
+| ---------- | ----------------------------------------------------- |
+| `backend/` | ASP.NET Core (.NET 10) Minimal API                    |
 | `webapp/`  | React + TypeScript web application (built by webpack) |
 
 The web application fetches todos from the backend over JSON. Field names are camelCase (`id`, `text`, `done`).
@@ -33,9 +33,9 @@ The API listens on `http://localhost:5000`.
 
 ### Endpoints
 
-| Method | Route    | Description        |
-|--------|----------|--------------------|
-| GET    | `/todos` | List all todos     |
+| Method | Route    | Description    |
+| ------ | -------- | -------------- |
+| GET    | `/todos` | List all todos |
 
 Manual requests are available in [backend/webapi.http](backend/webapi.http).
 
@@ -63,3 +63,7 @@ First time only: `npx playwright install chromium`. The repo also registers a Pl
 
 - Rules for contributors and AI agents are in [Agents.md](Agents.md), with sub-project rules in [backend/Agents.backend.md](backend/Agents.backend.md) and [webapp/Agents.webapp.md](webapp/Agents.webapp.md).
 - Work is tracked on the GitHub Project board and done on feature branches (`feature/<short-description>`) that are merged into `main` through pull requests.
+
+## For Humans
+
+Humans can continue to read the [Readme for Humans](Readme.Human.md).
