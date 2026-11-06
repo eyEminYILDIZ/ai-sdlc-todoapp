@@ -18,7 +18,7 @@ public class TodoEndpointTests : IClassFixture<WebApplicationFactory<Program>>
         var field = typeof(TodoService).GetField("_todos", BindingFlags.NonPublic | BindingFlags.Static)!;
         field.SetValue(null, new List<Todo>
         {
-            new Todo { Id = 1, Text = "Sample Todo", Done = false }
+            new Todo { Id = TodoService.SeedTodoId, Text = "Sample Todo", Done = false }
         });
 
         _client = factory.CreateClient();
@@ -39,7 +39,7 @@ public class TodoEndpointTests : IClassFixture<WebApplicationFactory<Program>>
         var todos = await _client.GetFromJsonAsync<List<Todo>>("/todos");
 
         var todo = Assert.Single(todos!);
-        Assert.Equal(1, todo.Id);
+        Assert.Equal(TodoService.SeedTodoId, todo.Id);
         Assert.Equal("Sample Todo", todo.Text);
         Assert.False(todo.Done);
     }
